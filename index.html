@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gesto – Support &amp; Confidentialité</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Nunito+Sans:wght@400;600;700&display=swap">
+<style>
+:root{
+  --bg:#f5f4fa; --fg:#1d1b2b; --muted:#5d5a73; --line:#dedbea; --card:#ffffff; --accent:#6a55d6; --glow:#ffcf7a;
+  --display:"Fraunces",Georgia,serif; --body:"Nunito Sans",system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root{--bg:#13121c;--fg:#ecebf5;--muted:#a6a3bd;--line:#2c2a3d;--card:#1b1a27;--accent:#a596ff;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6}
+.wrap{max-width:680px;margin:0 auto;padding:40px 16px 64px;display:flex;flex-direction:column;gap:36px}
+header{display:flex;align-items:center;gap:16px}
+.moon{width:52px;height:52px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--glow),#e7a347 70%);box-shadow:0 0 28px rgba(255,207,122,.5);flex:none}
+h1{font-family:var(--display);font-weight:650;font-size:2.4rem;line-height:1.1;margin:0}
+.sub{color:var(--muted);margin:2px 0 0}
+nav{display:flex;gap:10px;flex-wrap:wrap}
+nav a{color:var(--accent);text-decoration:none;font-weight:700;border:1px solid var(--line);border-radius:999px;padding:6px 14px}
+section{display:flex;flex-direction:column;gap:10px}
+h2{font-family:var(--display);font-weight:500;font-size:1.6rem;margin:0}
+h3{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:14px 0 0}
+p,ul{margin:0;max-width:65ch}
+ul{padding-left:20px}
+.contact{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.mail{font-weight:700;user-select:all}
+hr{border:0;border-top:1px solid var(--line);margin:0}
+small{color:var(--muted)}
+a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="moon" aria-hidden="true"></div>
+    <div><h1>Gesto</h1><p class="sub">14 petits mondes, un seul geste · 14 tiny worlds, one gesture</p></div>
+  </header>
+  <nav><a href="#fr">Français</a><a href="#en">English</a><a href="#privacy-fr">Confidentialité</a><a href="#privacy-en">Privacy</a></nav>
+
+  <div class="contact">
+    <strong>Contact / Support</strong>
+    <span class="mail">jkmorici@outlook.com</span>
+    <small>Réponse sous 72 h en général · Usually within 72 hours</small>
+  </div>
+
+  <section id="fr">
+    <h2>Assistance</h2>
+    <h3>Questions fréquentes</h3>
+    <ul>
+      <li><b>Ma progression a disparu.</b> Elle est enregistrée sur ton appareil. Supprimer l'app efface la progression.</li>
+      <li><b>Un achat ne s'affiche pas.</b> Écris-nous à l'adresse ci-dessus avec la date de l'achat.</li>
+      <li><b>Le jeu est trop rapide.</b> Active le mode confort dans les Réglages.</li>
+      <li><b>Changer la langue.</b> Réglages → Langue (6 langues).</li>
+    </ul>
+    <h3 id="privacy-fr">Politique de confidentialité</h3>
+    <p>Gesto ne demande ni compte, ni nom, ni adresse e-mail. Ta progression, ton profil (tranche d'âge, préférences) et ton chat Miso restent sur ton appareil.</p>
+    <p>L'app affiche des publicités facultatives via Google AdMob. AdMob peut collecter des identifiants d'appareil, des données d'utilisation et une position approximative pour diffuser et mesurer les publicités. Ces données ne sont pas liées à ton identité. Si le profil indique un enfant, les publicités sont demandées en mode « destiné aux enfants ». Détails : <a href="https://policies.google.com/privacy">politique de Google</a>.</p>
+    <p>Les achats intégrés passent par Apple ; le développeur ne reçoit aucune donnée de paiement.</p>
+    <p>Pour toute question ou demande de suppression : jkmorici@outlook.com.</p>
+  </section>
+
+  <hr>
+
+  <section id="en">
+    <h2>Support</h2>
+    <h3>Frequently asked</h3>
+    <ul>
+      <li><b>My progress is gone.</b> Progress is saved on your device. Deleting the app erases it.</li>
+      <li><b>A purchase does not show up.</b> Email us at the address above with the purchase date.</li>
+      <li><b>The game feels too fast.</b> Turn on comfort mode in Settings.</li>
+      <li><b>Change language.</b> Settings → Language (6 languages).</li>
+    </ul>
+    <h3 id="privacy-en">Privacy policy</h3>
+    <p>Gesto asks for no account, name or email. Your progress, profile (age range, preferences) and your cat Miso stay on your device.</p>
+    <p>The app shows optional ads through Google AdMob. AdMob may collect device identifiers, usage data and approximate location to serve and measure ads. This data is not linked to your identity. If the profile indicates a child, ads are requested as child-directed. Details: <a href="https://policies.google.com/privacy">Google's privacy policy</a>.</p>
+    <p>In-app purchases are handled by Apple; the developer receives no payment data.</p>
+    <p>Questions or deletion requests: jkmorici@outlook.com.</p>
+  </section>
+  <small>© 2026 Louka Calogero Morici</small>
+</div>
+</body>
+</html>
