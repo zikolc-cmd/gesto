@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>La Chambre d'Or</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root { --or: #ffcc66; --rose: #ff73b3; --violet: #8c66ff; --nuit: #07040f; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    background: radial-gradient(ellipse at 50% -10%, #2b1650 0%, #120a24 45%, var(--nuit) 100%);
+    color: #fff; font-family: Inter, -apple-system, sans-serif; overflow-x: hidden;
+    display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 32px 16px;
+  }
+  canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+  main { position: relative; z-index: 1; max-width: 560px; width: 100%; text-align: center; }
+  .porte {
+    width: 132px; height: 200px; margin: 0 auto 28px; border-radius: 66px 66px 6px 6px;
+    background: linear-gradient(180deg, #fff 0%, var(--or) 45%, var(--rose) 100%);
+    box-shadow: 0 0 60px rgba(255, 204, 102, .55), 0 0 140px rgba(140, 102, 255, .35);
+    position: relative; animation: souffle 4s ease-in-out infinite;
+  }
+  .porte::after {
+    content: ""; position: absolute; inset: -10px; border-radius: 76px 76px 10px 10px;
+    border: 1.5px solid rgba(255, 204, 102, .7);
+  }
+  @keyframes souffle { 0%, 100% { transform: scale(1); filter: brightness(1); } 50% { transform: scale(1.03); filter: brightness(1.12); } }
+  .kicker { font-size: 12px; letter-spacing: .3em; font-weight: 800; color: var(--or); }
+  h1 { font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: clamp(40px, 9vw, 64px); line-height: 1.05; margin: 10px 0 14px; }
+  .degrade { background: linear-gradient(90deg, var(--or), var(--rose), var(--violet)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  p { color: rgba(255, 255, 255, .78); font-size: 16px; line-height: 1.6; margin: 0 auto 14px; max-width: 460px; }
+  .code {
+    display: inline-flex; gap: 8px; margin: 18px 0 26px; flex-wrap: wrap; justify-content: center;
+  }
+  .code span {
+    font: 800 20px/1 ui-monospace, SFMono-Regular, Menlo, monospace; color: #1a0f00;
+    background: linear-gradient(180deg, var(--or), #f29a40); padding: 12px 12px; border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(255, 204, 102, .25);
+  }
+  .carte {
+    margin-top: 10px; padding: 22px; border-radius: 22px; text-align: left;
+    background: linear-gradient(135deg, rgba(43, 22, 80, .75), rgba(12, 7, 24, .75));
+    border: 1px solid rgba(255, 204, 102, .35); backdrop-filter: blur(6px);
+  }
+  .carte h2 { font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 26px; margin-bottom: 8px; }
+  .carte p { margin: 0; font-size: 15px; max-width: none; }
+  .signature { margin-top: 26px; font-family: "Cormorant Garamond", serif; font-size: 22px; color: var(--or); }
+  footer { margin-top: 30px; font-size: 12px; color: rgba(255, 255, 255, .35); }
+</style>
+</head>
+<body>
+<canvas id="or"></canvas>
+<main>
+  <div class="porte" aria-hidden="true"></div>
+  <div class="kicker">GESTO · CLUB DES MEMBRES</div>
+  <h1>Tu as ouvert<br><span class="degrade">la Chambre d'Or</span></h1>
+  <p>Six salles piégées. Des sols qui mentent, des portes qui s'envolent, des pancartes qui te veulent du mal. Tu as tout traversé, et tu as réuni les six fragments.</p>
+  <div class="code" aria-label="Le code">
+    <span>K7</span><span>Q2</span><span>M9</span><span>X4</span><span>R1</span><span>V8</span>
+  </div>
+  <div class="carte">
+    <h2>Tu fais partie des rares.</h2>
+    <p>Cette page n'existe nulle part ailleurs : on ne la trouve qu'en allant au bout de la mission secrète de Gesto. Garde le code pour toi, ou partage-le avec ceux qui le méritent. La suite se prépare… et les membres seront les premiers à la découvrir.</p>
+  </div>
+  <div class="signature">— Louka</div>
+  <footer>Gesto · une page cachée pour les membres</footer>
+</main>
+<script>
+  // de la poussière d'or qui monte doucement
+  const c = document.getElementById('or'), x = c.getContext('2d');
+  let W, H, grains = [];
+  function taille() { W = c.width = innerWidth * devicePixelRatio; H = c.height = innerHeight * devicePixelRatio; }
+  addEventListener('resize', taille); taille();
+  for (let i = 0; i < 90; i++) grains.push({ x: Math.random(), y: Math.random(), v: .0004 + Math.random() * .0012, r: .6 + Math.random() * 2.2, p: Math.random() * 6.28 });
+  function boucle(t) {
+    x.clearRect(0, 0, W, H);
+    for (const g of grains) {
+      g.y -= g.v; if (g.y < -.02) { g.y = 1.02; g.x = Math.random(); }
+      const a = .35 + .35 * Math.sin(t / 900 + g.p);
+      x.beginPath(); x.arc((g.x + Math.sin(t / 3000 + g.p) * .01) * W, g.y * H, g.r * devicePixelRatio, 0, 6.28);
+      x.fillStyle = `rgba(255, 210, 120, ${a})`; x.fill();
+    }
+    requestAnimationFrame(boucle);
+  }
+  requestAnimationFrame(boucle);
+</script>
+</body>
+</html>
